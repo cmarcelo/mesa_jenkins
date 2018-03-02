@@ -72,9 +72,6 @@ class DeqpLister(object):
         if not self.version:
             self.version = bs.mesa_version()
         unsupported = []
-        if "daily" != self.o.type and not self.o.retest_path:
-            # these tests triple the run-time
-            unsupported.append("dEQP-GLES31.functional.copy_image")
         if "13.0" in self.version:
             # Tapani's egl fixes not merged into 13.0 branch
             unsupported += ["dEQP-EGL.functional.create_context_ext",
